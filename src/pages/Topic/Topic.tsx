@@ -1,9 +1,10 @@
 import { NavigationMenu } from '../../shared/components/NavigationMenu/NavigationMenu';
 
-export const Home = () => {
+export const Topic = () => {
   return (
     <>
       <NavigationMenu />
+      <div>topic</div>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS } from "../../constants";
+import { COLORS } from "../../constants/themes";
 
 export const StyledNavigationListWrapper = styled.div`
   position: sticky;

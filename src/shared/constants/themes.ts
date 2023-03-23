@@ -47,5 +47,6 @@ export const DEVICES = {
 
 export const COLORS = {
   BLACK: '#111111',
-  WHITE: 'FFFFFF',
+  WHITE: '#FFF',
+  GREY: '#767676',
 };

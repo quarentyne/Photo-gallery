@@ -1,4 +1,4 @@
-import { Home } from '../../pages';
+import { Home, Topic } from '../../pages';
 
 export enum ROUTES_PATHS {
   HOME = '/',
@@ -16,5 +16,9 @@ export const ROUTES: IRoute[] = [
   {
     path: ROUTES_PATHS.HOME,
     component: <Home />,
+  },
+  {
+    path: ROUTES_PATHS.TOPIC,
+    component: <Topic />,
   },
 ];
