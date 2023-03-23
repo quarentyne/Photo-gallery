@@ -4,4 +4,8 @@ export enum API_ENDPOINTS {
   PHOTOS = 'photos/',
   RANDOM_PHOTOS = '/photos/random',
   USERS = 'users/',
-}
+};
+
+export const AUTHORIZATION_PARAMS = {
+  Authorization: 'Client-ID pLvbUXOTa_3_TRBZ-RedPOjFNw16fmxfrTB7tOEsvR8',
+};

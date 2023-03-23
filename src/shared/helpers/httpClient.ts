@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { AUTHORIZATION_PARAMS } from '../constants';
 
 const instance = axios.create()
 
@@ -69,11 +70,9 @@ const generateOptions = ({ method, url, data, params }: TGenerateOptions) => {
     'Access-Control-Allow-Origin': '*',
   }
 
-  const token = ''
+  // const token = ''
 
-  const authHeaders = {
-    'Session-Token': token,
-  }
+  const authHeaders = AUTHORIZATION_PARAMS;
 
   return {
     method,
@@ -82,7 +81,7 @@ const generateOptions = ({ method, url, data, params }: TGenerateOptions) => {
     params,
     headers: {
       ...defaultHeaders,
-      ...(token ? authHeaders : {}),
+      ...(authHeaders),
     },
   }
 }

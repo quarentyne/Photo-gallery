@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { FONT_SIZES } from "./shared/constants";
+import { COLORS, FONT_SIZES } from "./shared/constants";
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -13,8 +13,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Helvetica;
     font-weight: 400;
     font-size: ${FONT_SIZES[14]};
+    color: ${COLORS.BLACK};
     line-height: 1.6;
-    color: #292D45;
   }
 
   ul[class],
