@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Helvetica;
     font-weight: 400;
     font-size: ${FONT_SIZES[14]};
+    line-height: 1.6;
     color: #292D45;
   }
 

@@ -45,4 +45,7 @@ export const DEVICES = {
   DESKTOP_L: `(min-width: ${SCREEN_SIZES.DESKTOP_L})`,
 };
 
-export const COLORS = {};
+export const COLORS = {
+  BLACK: '#111111',
+  WHITE: 'FFFFFF',
+};
