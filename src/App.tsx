@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { getTopics } from './modules/Topics';
-import { RouterConfig } from './router/Config';
+import { RouterConfig } from './router';
 import { useAppDispatch } from './shared/hooks';
 import { GlobalStyle } from './styles';
 

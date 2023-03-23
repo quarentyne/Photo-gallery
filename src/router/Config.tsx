@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { ROUTES } from '../shared/constants';
-import { Layout } from '../shared/Layout/Layout';
+import { Layout } from '../shared/Layout';
 
 export const RouterConfig = () => {
   return (
