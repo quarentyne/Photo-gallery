@@ -4,6 +4,7 @@ export enum ROUTES_PATHS {
   HOME = '/',
   USER = '/users/:username',
   TOPIC = '/topics/:id',
+  PHOTO = '/photos/:id',
   NOT_FOUND = '*',
 }
 
