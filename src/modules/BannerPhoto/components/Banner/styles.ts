@@ -15,6 +15,9 @@ export const StyledBannerWrapper = styled.div`
 export const StyledBannerContainer = styled.div`
   height: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const StyledBannerImageBlock = styled.div`

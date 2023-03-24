@@ -13,18 +13,16 @@ export const Home = () => {
     dispatch(getBannerPhoto());
   }, [dispatch]);
 
-  if (!photo) {
-    return <></>;
-  }
-
   return (
     <>
-      <Banner
-        imageAltText={photo.alt_description}
-        imageURL={photo.urls.full}
-        authorId={photo.user.id}
-        authorName={photo.user.name}
-      />
+      {photo && (
+        <Banner
+          imageAltText={photo.alt_description}
+          imageURL={photo.urls.full}
+          authorId={photo.user.id}
+          authorName={photo.user.name}
+        />
+      )}
       {/* <img src={photo?.urls.full} alt={photo?.alt_description} /> */}
     </>
   );
