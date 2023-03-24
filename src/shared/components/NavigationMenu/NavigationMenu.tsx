@@ -31,7 +31,7 @@ export const NavigationMenu = () => {
       >
         {topics?.map((topic) => (
           <SwiperSlide key={topic.id}>
-            <TopicItem id={topic.id} title={topic.title} key={topic.id} />
+            <TopicItem id={topic.id} title={topic.title} />
           </SwiperSlide>
         ))}
       </Swiper>
