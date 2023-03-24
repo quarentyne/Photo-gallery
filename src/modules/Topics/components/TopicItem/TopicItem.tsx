@@ -1,4 +1,4 @@
-import { API_ENDPOINTS } from '../../../shared/constants';
+import { ROUTES_PATHS } from '../../../../shared/constants';
 import { StyledNavLink } from './styles';
 
 interface ITopicItem {
@@ -8,6 +8,6 @@ interface ITopicItem {
 
 export const TopicItem = ({ id, title }: ITopicItem) => {
   return (
-    <StyledNavLink to={`${API_ENDPOINTS.TOPICS}${id}`}>{title}</StyledNavLink>
+    <StyledNavLink to={`${ROUTES_PATHS.TOPIC}${id}`}>{title}</StyledNavLink>
   );
 };

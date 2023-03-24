@@ -9,11 +9,17 @@ export interface ITopic {
 export interface ITopicsState {
   topics: ITopic[] | null;
   error: string[] | null;
+  isLoading: boolean;
 };
 
 export const initialState: ITopicsState = {
   topics: null,
   error: null,
+  isLoading: false,
 };
 
-export interface IGetTopicsResponse extends Array<ITopic>{};
+export interface IGetTopicsResponse { 
+  id: string;
+  slug: string;
+  title: string;
+};

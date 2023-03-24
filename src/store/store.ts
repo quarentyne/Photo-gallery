@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { topicsSlice } from '../modules/Topics';
+import topicsSlice from '../modules/Topics/features/topicsSlice';
 
 export const store = configureStore({
   reducer: {

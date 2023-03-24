@@ -59,14 +59,4 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-
-  .swiper-horizontal > .swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
-    bottom: -2px;
-  };
-
-  .swiper-slide{
-    display: flex;
-    align-self: center;
-    justify-content: center;
-  }
 `;

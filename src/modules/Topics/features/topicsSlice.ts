@@ -9,12 +9,15 @@ const topicsSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(getTopics.pending, state => {
       state.error = null;
+      state.isLoading = true;
     });
     builder.addCase(getTopics.rejected, (state, action) => {
       state.error = action.error.errors;
+      state.isLoading = false;
     });
     builder.addCase(getTopics.fulfilled, (state, action) => {
       state.topics = action.payload;
+      state.isLoading = false;
     });
   },
 });

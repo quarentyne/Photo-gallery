@@ -8,6 +8,17 @@ export const StyledNavigationListWrapper = styled.div`
   background-color: ${COLORS.WHITE};
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   padding: 5px;
+`;
+
+export const StyledMenuList = styled.div`
+  overflow: auto;
+  white-space: nowrap;
+`;
+
+export const StyledListItem = styled.div`
+  display: inline-block;
+  padding: 14px;
+  text-align: center;
 `;

@@ -1,40 +1,29 @@
-import { Scrollbar } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { TopicItem, topicsSelector } from '../../../modules/Topics';
-import { useAppSelector } from '../../hooks';
-import { StyledNavigationListWrapper } from './styles';
-import 'swiper/css';
-import 'swiper/css/scrollbar';
+import { useEffect } from 'react';
+import { getTopics, TopicItem, topicsSelector } from '../../../modules/Topics';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import {
+  StyledListItem,
+  StyledMenuList,
+  StyledNavigationListWrapper,
+} from './styles';
 
 export const NavigationMenu = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getTopics());
+  }, [dispatch]);
+
   const { topics } = useAppSelector(topicsSelector);
 
   return (
     <StyledNavigationListWrapper>
-      <Swiper
-        modules={[Scrollbar]}
-        scrollbar={{
-          draggable: true,
-        }}
-        spaceBetween={20}
-        breakpoints={{
-          320: {
-            slidesPerView: 3,
-          },
-          768: {
-            slidesPerView: 6,
-          },
-          1024: {
-            slidesPerView: 10,
-          },
-        }}
-      >
+      <StyledMenuList>
         {topics?.map((topic) => (
-          <SwiperSlide key={topic.id}>
+          <StyledListItem key={topic.id}>
             <TopicItem id={topic.id} title={topic.title} />
-          </SwiperSlide>
+          </StyledListItem>
         ))}
-      </Swiper>
+      </StyledMenuList>
     </StyledNavigationListWrapper>
   );
 };
