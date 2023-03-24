@@ -1,17 +1,13 @@
+import { IPhotoAuthorInfo, IPhotoUrls } from "../../../models";
+
 export const BANNER_PHOTO_SLICE_NAME = 'topics';
 
 
 interface IBannerPhoto {
   id: string;
   alt_description: string;
-  urls: {
-    regular: string,
-    full: string,
-  };
-  user: {
-    id: string;
-    name: string;
-  };
+  urls: IPhotoUrls;
+  user: IPhotoAuthorInfo;
 };
 
 interface IBannerPhotoState {
@@ -29,14 +25,8 @@ export const initialState: IBannerPhotoState = {
 export interface IGetBannerPhotoResponse { 
   id: string;
   alt_description: string;
-  urls: {
-    regular: string,
-    full: string,
-  };
-  user: {
-    id: string;
-    name: string;
-  };
+  urls: IPhotoUrls;
+  user: IPhotoAuthorInfo;
 };
 
 export interface IGetBannerPhotoDTO {

@@ -1,17 +1,27 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Banner,
   bannerPhotoSelector,
   getBannerPhoto,
 } from '../../modules/BannerPhoto';
+import { getListPhotos, listPhotosSelector } from '../../modules/ListPhotos';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
   const { photo } = useAppSelector(bannerPhotoSelector);
+  const { photos, page } = useAppSelector(listPhotosSelector);
+  const [fetching, setFetching] = useState(true);
+
   useEffect(() => {
     dispatch(getBannerPhoto());
   }, [dispatch]);
+  useEffect(() => {
+    if (fetching) {
+      dispatch(getListPhotos({ page, per_page: 15 }));
+      setFetching(false);
+    }
+  }, [dispatch, page, fetching]);
 
   return (
     <>
@@ -23,7 +33,10 @@ export const Home = () => {
           authorName={photo.user.name}
         />
       )}
-      {/* <img src={photo?.urls.full} alt={photo?.alt_description} /> */}
+      {photos.map((photo) => (
+        <img alt={photo.description} src={photo.urls.small} />
+      ))}
+      <button onClick={() => setFetching(true)} />
     </>
   );
 };
