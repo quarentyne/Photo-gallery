@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
-import { getBannerPhoto } from '../../modules/BannerPhoto/features/actionCreators';
-import { bannerPhotoSelector } from '../../modules/BannerPhoto/features/selector';
+import {
+  Banner,
+  bannerPhotoSelector,
+  getBannerPhoto,
+} from '../../modules/BannerPhoto';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
 export const Home = () => {
@@ -10,9 +13,19 @@ export const Home = () => {
     dispatch(getBannerPhoto());
   }, [dispatch]);
 
+  if (!photo) {
+    return <></>;
+  }
+
   return (
     <>
-      <img src={photo?.urls.regular} alt={photo?.alt_description} />
+      <Banner
+        imageAltText={photo.alt_description}
+        imageURL={photo.urls.full}
+        authorId={photo.user.id}
+        authorName={photo.user.name}
+      />
+      {/* <img src={photo?.urls.full} alt={photo?.alt_description} /> */}
     </>
   );
 };

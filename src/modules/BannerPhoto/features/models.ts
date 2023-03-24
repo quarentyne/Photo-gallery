@@ -10,7 +10,7 @@ interface IBannerPhoto {
   };
   user: {
     id: string;
-    username: string;
+    name: string;
   };
 };
 
@@ -35,7 +35,7 @@ export interface IGetBannerPhotoResponse {
   };
   user: {
     id: string;
-    username: string;
+    name: string;
   };
 };
 

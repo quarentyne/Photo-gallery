@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getTopicBannerPhoto } from '../../modules/BannerPhoto/features/actionCreators';
-import { bannerPhotoSelector } from '../../modules/BannerPhoto/features/selector';
+import {
+  Banner,
+  bannerPhotoSelector,
+  getTopicBannerPhoto,
+} from '../../modules/BannerPhoto';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
 export const Topic = () => {
@@ -12,10 +15,19 @@ export const Topic = () => {
     dispatch(getTopicBannerPhoto({ topicId: id }));
   }, [dispatch, id]);
 
+  if (!photo) {
+    return <></>;
+  }
+
   return (
     <>
       <div>topic</div>
-      <img src={photo?.urls.regular} alt={photo?.alt_description} />
+      <Banner
+        imageAltText={photo.alt_description}
+        imageURL={photo.urls.full}
+        authorId={photo.user.id}
+        authorName={photo.user.name}
+      />
     </>
   );
 };
