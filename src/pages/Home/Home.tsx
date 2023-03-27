@@ -48,7 +48,6 @@ export const Home = () => {
       )}
       <GalleryList photos={photos} />
       <LoadMoreButton onClick={loadMorePhotos} />
-      <div>text</div>
     </>
   );
 };
