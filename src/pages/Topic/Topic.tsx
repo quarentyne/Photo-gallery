@@ -7,7 +7,7 @@ import {
   topicBannerPhotoSelector,
 } from '../../modules/TopicBanner';
 import { getTopicPhotos, topicPhotosSelector } from '../../modules/TopicPhotos';
-import { LoadMoreButton } from '../../shared/components';
+import { Loader, LoadMoreButton } from '../../shared/components';
 import { PER_PAGE } from '../../shared/constants';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
@@ -58,7 +58,7 @@ export const Topic = () => {
         />
       )}
       <GalleryList photos={photos} />
-      <LoadMoreButton onClick={loadMorePhotos} />
+      {fetching ? <Loader /> : <LoadMoreButton onClick={loadMorePhotos} />}
     </>
   );
 };

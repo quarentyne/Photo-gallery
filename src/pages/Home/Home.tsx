@@ -1,34 +1,37 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
-import { getListPhotos, listPhotosSelector } from '../../modules/ListPhotos';
 import { PER_PAGE } from '../../shared/constants';
-import { LoadMoreButton } from '../../shared/components';
+import { Loader, LoadMoreButton } from '../../shared/components';
 import { GalleryList } from '../../modules/PhotosCommon';
 import { Banner } from '../../modules/BannerCommon';
 import {
-  getMainBannerPhoto,
-  mainBannerPhotoSelector,
-} from '../../modules/BannerPhoto';
+  getRandomPhotos,
+  randomPhotosSelector,
+} from '../../modules/RandomPhotos';
+import {
+  getRandomBannerPhoto,
+  randomBannerPhotoSelector,
+} from '../../modules/RandomBanner';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
-  const { photo, ...bannerParams } = useAppSelector(mainBannerPhotoSelector);
-  const { photos, page } = useAppSelector(listPhotosSelector);
+  const { photo, ...bannerParams } = useAppSelector(randomBannerPhotoSelector);
+  const { photos, page } = useAppSelector(randomPhotosSelector);
   const [fetching, setFetching] = useState(false);
 
   useEffect(() => {
-    dispatch(getMainBannerPhoto());
+    dispatch(getRandomBannerPhoto());
   }, [dispatch]);
 
   useEffect(() => {
     if (!photos.length) {
-      dispatch(getListPhotos({ page, per_page: PER_PAGE }));
+      dispatch(getRandomPhotos({ page, per_page: PER_PAGE }));
     }
   }, [dispatch, page, photos]);
 
   useEffect(() => {
     if (fetching) {
-      dispatch(getListPhotos({ page, per_page: PER_PAGE }));
+      dispatch(getRandomPhotos({ page, per_page: PER_PAGE }));
       setFetching(false);
     }
   }, [dispatch, page, fetching]);
@@ -47,7 +50,7 @@ export const Home = () => {
         />
       )}
       <GalleryList photos={photos} />
-      <LoadMoreButton onClick={loadMorePhotos} />
+      {fetching ? <Loader /> : <LoadMoreButton onClick={loadMorePhotos} />}
     </>
   );
 };

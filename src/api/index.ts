@@ -1,5 +1,5 @@
 export { TopicsAPI } from './TopicsAPI';
 export type { IApiError } from './APIError';
-export { PhotosListAPI } from './PhotosListAPI';
+export { RandomPhotosAPI } from './RandomPhotosAPI';
 export { BannerPhotoAPI } from './BannerPhotoAPI';
 export { PhotosTopicAPI } from './PhotosTopicApi';

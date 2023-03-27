@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import topicsSlice from '../modules/Topics/features/topicsSlice';
-import mainBannerPhotoSlice from '../modules/BannerPhoto/features/mainBannerPhotoSlice';
 import topicBannerPhotoSlice from '../modules/TopicBanner/features/topicBannerPhotoSlice';
-import listPhotosSlice from '../modules/ListPhotos/features/listPhotosSlice';
 import topicPhotosSlice from '../modules/TopicPhotos/features/topicPhotosSlice';
+import randomPhotosSlice from '../modules/RandomPhotos/features/randomPhotosSlice';
+import randomBannerPhotoSlice from '../modules/RandomBanner/features/randomBannerPhotoSlice';
 
 export const store = configureStore({
   reducer: {
     topics: topicsSlice,
-    mainBannerPhoto: mainBannerPhotoSlice,
+    randomBannerPhoto: randomBannerPhotoSlice,
     topicBannerPhoto: topicBannerPhotoSlice,
-    listPhotos: listPhotosSlice,
+    randomPhotos: randomPhotosSlice,
     topicPhotos: topicPhotosSlice,
   },
 });

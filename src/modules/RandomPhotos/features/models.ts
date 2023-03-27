@@ -1,6 +1,6 @@
 import { IPhotoAuthorInfo, IPhotoUrls } from "../../../models";
 
-export const PHOTOS_LIST_SLICE_NAME = 'photosList';
+export const RANDOM_PHOTOS_SLICE_NAME = 'RandomPhotos';
 
 export interface IPhoto{
   id: string;
@@ -9,28 +9,28 @@ export interface IPhoto{
   user: IPhotoAuthorInfo;
 };
 
-interface IPhotosListState {
+interface IRandomPhotosState {
   isLoading: boolean;
   photos: IPhoto[];
   error: string[] | null;
   page: number;
 };
 
-export const initialState: IPhotosListState = {
+export const initialState: IRandomPhotosState = {
   isLoading: false,
   photos: [],
   error: null,
   page: 1,
 };
 
-export interface IGetPhotosListResponse { 
+export interface IGetRandomPhotosResponse { 
   id: string;
   description: string;
   urls: IPhotoUrls;
   user: IPhotoAuthorInfo;
 };
 
-export interface IGetPhotosListDTO {
+export interface IGetRandomPhotosDTO {
   page: number;
   per_page: number;
 };
