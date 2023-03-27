@@ -7,6 +7,6 @@ import { httpGet } from "../shared/helpers";
 
 export class BannerPhotoAPI {
   static getBannerPhoto(data?: IGetBannerPhotoDTO): Promise<AxiosResponse<IGetBannerPhotoResponse>> {
-    return httpGet<IGetBannerPhotoResponse>(`${BASE_API_URL}${API_ENDPOINTS.RANDOM_PHOTOS}`, data);
+    return httpGet<IGetBannerPhotoResponse>(`${BASE_API_URL}${API_ENDPOINTS.RANDOM_PHOTOS}`, {topics: data?.topicId});
   };
 };
