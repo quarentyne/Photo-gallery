@@ -1,2 +1,2 @@
-export { Home } from './Home/Home';
-export { Topic } from './Topic/Topic';
+export { Home } from './Home';
+export { Topic } from './Topic';

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { COLORS, FONT_SIZES } from "./shared/constants";
+import { COLORS, FONT_SIZES } from "./shared/constants/themes";
 
 export const GlobalStyle = createGlobalStyle`
   *,

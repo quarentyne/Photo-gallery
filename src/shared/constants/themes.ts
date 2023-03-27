@@ -49,4 +49,6 @@ export const COLORS = {
   BLACK: '#111111',
   WHITE: '#FFF',
   GREY: '#767676',
+  PALE_YELLOW: '#ffff99',
+  STRONG_YELLOW: '#ffff4d',
 };

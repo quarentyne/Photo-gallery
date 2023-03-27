@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { getTopics, TopicItem, topicsSelector } from '../../../modules/Topics';
+import { TopicItem, topicsSelector } from '../../../modules/Topics';
+import { getTopics } from '../../../modules/Topics/features/actionCreators';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
   StyledListItem,

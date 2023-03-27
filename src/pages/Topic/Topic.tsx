@@ -15,7 +15,6 @@ export const Topic = () => {
     if (!id) {
       return;
     }
-
     dispatch(getTopicBannerPhoto({ topicId: id }));
   }, [dispatch, id]);
 

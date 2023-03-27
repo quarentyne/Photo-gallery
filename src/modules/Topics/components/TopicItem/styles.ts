@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { COLORS, FONT_SIZES } from "../../../../shared/constants";
+import { COLORS, FONT_SIZES } from "../../../../shared/constants/themes";
 
 export const StyledNavLink = styled(NavLink)`
   position: relative;
