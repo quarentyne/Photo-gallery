@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
-import { IGetBannerPhotoDTO, IGetBannerPhotoResponse } from "../modules/BannerPhoto/features/models";
+import { IGetBannerPhotoResponse } from "../modules/BannerCommon/features/models";
+import { IGetBannerPhotoDTO } from "../modules/TopicBanner/features/models";
 import { API_ENDPOINTS, BASE_API_URL } from "../shared/constants";
 import { httpGet } from "../shared/helpers";
 

@@ -1,16 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BannerPhotoAPI, IApiError } from "../../../api";
-import { BANNER_PHOTO_SLICE_NAME, IGetBannerPhotoDTO, IGetBannerPhotoResponse } from "./models";
+import { IGetBannerPhotoResponse } from "../../BannerCommon/features/models";
+import { BANNER_PHOTO_SLICE_NAME } from "./models";
 
-export const getTopicBannerPhoto = createAsyncThunk<IGetBannerPhotoResponse, IGetBannerPhotoDTO, {serializedErrorType: IApiError}>(
-  `${BANNER_PHOTO_SLICE_NAME}/getBannerPhoto`,
-  async function(data: IGetBannerPhotoDTO){
-    const response = await BannerPhotoAPI.getBannerPhoto(data);
-    return response.data;
-  }
-);
-
-export const getBannerPhoto = createAsyncThunk<IGetBannerPhotoResponse, void, {serializedErrorType: IApiError}>(
+export const getMainBannerPhoto = createAsyncThunk<IGetBannerPhotoResponse, void, {serializedErrorType: IApiError}>(
   `${BANNER_PHOTO_SLICE_NAME}/getBannerPhoto`,
   async function(){
     const response = await BannerPhotoAPI.getBannerPhoto();

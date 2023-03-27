@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import topicsSlice from '../modules/Topics/features/topicsSlice';
-import bannerPhotoSlice from '../modules/BannerPhoto/features/bannerPhotoSlice';
+import mainBannerPhotoSlice from '../modules/BannerPhoto/features/mainBannerPhotoSlice';
+import topicBannerPhotoSlice from '../modules/TopicBanner/features/topicBannerPhotoSlice';
 import listPhotosSlice from '../modules/ListPhotos/features/listPhotosSlice';
 
 export const store = configureStore({
   reducer: {
     topics: topicsSlice,
-    bannerPhoto: bannerPhotoSlice,
+    mainBannerPhoto: mainBannerPhotoSlice,
+    topicBannerPhoto: topicBannerPhotoSlice,
     listPhotos: listPhotosSlice,
   },
 });

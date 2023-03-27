@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Banner } from '../../modules/BannerCommon';
 import {
-  Banner,
-  bannerPhotoSelector,
   getTopicBannerPhoto,
-} from '../../modules/BannerPhoto';
+  topicBannerPhotoSelector,
+} from '../../modules/TopicBanner';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
 export const Topic = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { photo, ...bannerParams } = useAppSelector(bannerPhotoSelector);
+  const { photo, ...bannerParams } = useAppSelector(topicBannerPhotoSelector);
   useEffect(() => {
     if (!id) {
       return;
