@@ -51,7 +51,7 @@ export const Topic = () => {
       {photo && (
         <Banner
           imageAltText={photo.alt_description}
-          imageURL={photo.urls.full}
+          imageURL={photo.urls.regular}
           authorId={photo.user.id}
           authorName={photo.user.name}
           isLoading={bannerParams.isLoading}
