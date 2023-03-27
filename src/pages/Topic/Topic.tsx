@@ -10,8 +10,12 @@ import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 export const Topic = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { photo } = useAppSelector(bannerPhotoSelector);
+  const { photo, ...bannerParams } = useAppSelector(bannerPhotoSelector);
   useEffect(() => {
+    if (!id) {
+      return;
+    }
+
     dispatch(getTopicBannerPhoto({ topicId: id }));
   }, [dispatch, id]);
 
@@ -21,12 +25,12 @@ export const Topic = () => {
 
   return (
     <>
-      <div>topic</div>
       <Banner
         imageAltText={photo.alt_description}
         imageURL={photo.urls.full}
         authorId={photo.user.id}
         authorName={photo.user.name}
+        isLoading={bannerParams.isLoading}
       />
     </>
   );

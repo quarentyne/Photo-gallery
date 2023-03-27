@@ -2,7 +2,6 @@ import { IPhotoAuthorInfo, IPhotoUrls } from "../../../models";
 
 export const BANNER_PHOTO_SLICE_NAME = 'topics';
 
-
 interface IBannerPhoto {
   id: string;
   alt_description: string;
@@ -30,5 +29,5 @@ export interface IGetBannerPhotoResponse {
 };
 
 export interface IGetBannerPhotoDTO {
-  topicId?: string;
+  topicId: string;
 };
