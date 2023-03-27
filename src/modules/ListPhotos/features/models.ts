@@ -2,7 +2,7 @@ import { IPhotoAuthorInfo, IPhotoUrls } from "../../../models";
 
 export const PHOTOS_LIST_SLICE_NAME = 'photosList';
 
-interface IPhoto{
+export interface IPhoto{
   id: string;
   description: string;
   urls: IPhotoUrls;

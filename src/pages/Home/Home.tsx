@@ -5,6 +5,7 @@ import {
   getBannerPhoto,
 } from '../../modules/BannerPhoto';
 import { getListPhotos, listPhotosSelector } from '../../modules/ListPhotos';
+import { GalleryList } from '../../modules/PhotosCommon/components';
 import { PER_PAGE } from '../../shared/constants';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
@@ -35,9 +36,7 @@ export const Home = () => {
           isLoading={bannerParams.isLoading}
         />
       )}
-      {photos.map((photo) => (
-        <img key={photo.id} alt={photo.description} src={photo.urls.small} />
-      ))}
+      <GalleryList photos={photos} />
       <button onClick={() => setFetching(true)} />
     </>
   );
