@@ -4,13 +4,10 @@ import { StyledNavLink } from './styles';
 interface ITopicItem {
   id: string;
   title: string;
-  onClick: () => void;
 }
 
-export const TopicItem = ({ id, title, onClick }: ITopicItem) => {
+export const TopicItem = ({ id, title }: ITopicItem) => {
   return (
-    <StyledNavLink onClick={onClick} to={`${ROUTES_PATHS.TOPIC}${id}`}>
-      {title}
-    </StyledNavLink>
+    <StyledNavLink to={`${ROUTES_PATHS.TOPIC}${id}`}>{title}</StyledNavLink>
   );
 };

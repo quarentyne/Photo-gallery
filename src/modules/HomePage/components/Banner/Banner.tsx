@@ -1,4 +1,3 @@
-import { Loader } from '../../../../shared/components/Loader/Loader';
 import { ROUTES_PATHS } from '../../../../shared/constants';
 import {
   StyledAuthorBlock,
@@ -14,33 +13,21 @@ import {
 interface IBanner {
   imageURL: string;
   authorId: string;
-  imageAltText: string;
+  description: string;
   authorName: string;
-  isLoading: boolean;
 }
 
 export const Banner = ({
   imageURL,
-  imageAltText,
+  description,
   authorId,
   authorName,
-  isLoading,
 }: IBanner) => {
-  if (isLoading) {
-    return (
-      <StyledBannerWrapper>
-        <StyledBannerContainer>
-          <Loader />
-        </StyledBannerContainer>
-      </StyledBannerWrapper>
-    );
-  }
-
   return (
     <StyledBannerWrapper>
       <StyledBannerContainer>
         <StyledBannerImageBlock>
-          <StyledBannerPhoto src={imageURL} alt={imageAltText} />
+          <StyledBannerPhoto src={imageURL} alt={description} />
         </StyledBannerImageBlock>
         <StyledBannerTextBlock>
           <StyledBannerBackground />

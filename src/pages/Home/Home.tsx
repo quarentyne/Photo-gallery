@@ -1,56 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 import { PER_PAGE } from '../../shared/constants';
-import { Loader, LoadMoreButton } from '../../shared/components';
-import { GalleryList } from '../../modules/PhotosCommon';
-import { Banner } from '../../modules/BannerCommon';
+import { LoadMoreButton } from '../../shared/components';
 import {
-  getRandomPhotos,
-  randomPhotosSelector,
-} from '../../modules/RandomPhotos';
-import {
-  getRandomBannerPhoto,
-  randomBannerPhotoSelector,
-} from '../../modules/RandomBanner';
+  Banner,
+  bannerPhotoSelector,
+  GalleryList,
+  getBannerPhoto,
+  getPhotos,
+  paginationSelector,
+  photosSelector,
+} from '../../modules/HomePage';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
-  const { photo, ...bannerParams } = useAppSelector(randomBannerPhotoSelector);
-  const { photos, page } = useAppSelector(randomPhotosSelector);
-  const [fetching, setFetching] = useState(false);
+  const bannerPhoto = useAppSelector(bannerPhotoSelector);
+  const page = useAppSelector(paginationSelector);
+  const photos = useAppSelector(photosSelector);
+  const { topicId } = useParams();
 
   useEffect(() => {
-    dispatch(getRandomBannerPhoto());
-  }, [dispatch]);
+    dispatch(getBannerPhoto());
+  }, [dispatch, topicId]);
 
   useEffect(() => {
-    if (!photos.length) {
-      dispatch(getRandomPhotos({ page, per_page: PER_PAGE }));
-    }
-  }, [dispatch, page, photos]);
+    dispatch(getPhotos({ page, per_page: PER_PAGE, topicId }));
+  }, [dispatch, topicId]);
 
-  useEffect(() => {
-    if (fetching) {
-      dispatch(getRandomPhotos({ page, per_page: PER_PAGE }));
-      setFetching(false);
-    }
-  }, [dispatch, page, fetching]);
-
-  const loadMorePhotos = () => setFetching(true);
+  const loadMorePhotos = () => {
+    dispatch(getPhotos({ page, per_page: PER_PAGE, topicId }));
+  };
 
   return (
     <>
-      {photo && (
+      {bannerPhoto && (
         <Banner
-          imageAltText={photo.alt_description}
-          imageURL={photo.urls.regular}
-          authorId={photo.user.id}
-          authorName={photo.user.name}
-          isLoading={bannerParams.isLoading}
+          description={bannerPhoto.description}
+          imageURL={bannerPhoto.urls.regular}
+          authorId={bannerPhoto.user.id}
+          authorName={bannerPhoto.user.name}
         />
       )}
       <GalleryList photos={photos} />
-      {fetching ? <Loader /> : <LoadMoreButton onClick={loadMorePhotos} />}
+      <LoadMoreButton onClick={loadMorePhotos} />
     </>
   );
 };

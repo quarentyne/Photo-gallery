@@ -12,11 +12,11 @@ export const StyledGalleryContainer = styled.div`
   align-items: center;
   column-gap: 20px;
   row-gap: 24px;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: 1fr;
   @media screen and ${DEVICES.MOBILE_XL}{
-    grid-template-columns: repeat(2, minmax(0, 1fr))
+    grid-template-columns: repeat(2, 1fr)
   };
   @media screen and ${DEVICES.TABLET}{
-    grid-template-columns: repeat(3, minmax(0, 1fr))
+    grid-template-columns: repeat(3, 1fr)
   };
 `;

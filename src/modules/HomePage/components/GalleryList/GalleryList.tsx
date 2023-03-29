@@ -1,4 +1,4 @@
-import { IPhoto } from '../../../RandomPhotos';
+import { IPhoto } from '../../../../models';
 import { GalleryItem } from '../GalleryItem';
 import { StyledGalleryContainer, StyledGalleryWrapper } from './styles';
 

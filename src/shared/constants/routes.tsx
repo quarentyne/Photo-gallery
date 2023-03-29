@@ -1,9 +1,9 @@
-import { Home, Topic } from '../../pages';
+import { Home } from '../../pages/Home/Home';
 
 enum ROUTES_PATHS_TEMPLATE {
   HOME = '/',
   USER = '/users/:username',
-  TOPIC = '/topics/:id',
+  TOPIC = '/:topicId',
   PHOTO = '/photos/:id',
   NOT_FOUND = '*',
 }
@@ -20,13 +20,13 @@ export const ROUTES: IRoute[] = [
   },
   {
     path: ROUTES_PATHS_TEMPLATE.TOPIC,
-    component: <Topic />,
+    component: <Home />,
   },
 ];
 
 export enum ROUTES_PATHS {
   HOME = '/',
+  TOPIC = '/topic/',
   USER = '/users/',
-  TOPIC = '/topics/',
   PHOTO = '/photos/',
 }
