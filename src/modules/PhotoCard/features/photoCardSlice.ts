@@ -10,6 +10,7 @@ const photoCardSlice = createSlice({
     builder.addCase(getPhoto.pending, state => {
       state.error = null;
       state.isLoading = true;
+      state.photo = null;
     });
     builder.addCase(getPhoto.rejected, (state, action) => {
       state.error = action.error.errors;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 import { PER_PAGE } from '../../shared/constants';
@@ -28,9 +28,9 @@ export const Home = () => {
     dispatch(getPhotos({ page: 1, per_page: PER_PAGE, topicId }));
   }, [dispatch, topicId]);
 
-  const loadMorePhotos = () => {
+  const loadMorePhotos = useCallback(() => {
     dispatch(getPhotos({ page, per_page: PER_PAGE, topicId }));
-  };
+  }, [dispatch, page, topicId]);
 
   return (
     <>

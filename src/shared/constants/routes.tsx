@@ -1,4 +1,5 @@
 import { Home } from '../../pages/Home/Home';
+import { Photo } from '../../pages/Photo/Photo';
 
 enum ROUTES_PATHS_TEMPLATE {
   HOME = '/',
@@ -21,6 +22,10 @@ export const ROUTES: IRoute[] = [
   {
     path: ROUTES_PATHS_TEMPLATE.TOPIC,
     component: <Home />,
+  },
+  {
+    path: ROUTES_PATHS_TEMPLATE.PHOTO,
+    component: <Photo />,
   },
 ];
 
