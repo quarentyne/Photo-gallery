@@ -8,7 +8,7 @@ interface IHomePageState {
   bannerPhoto: IPhoto | null;
   error: string[] | null;
   page: number;
-  topicId: string;
+  topicId?: string;
 };
 
 export const initialState: IHomePageState = {
@@ -17,7 +17,6 @@ export const initialState: IHomePageState = {
   bannerPhoto: null,
   error: null,
   page: 1,
-  topicId: '',
 };
 
 export interface IGetPhotosResponse { 

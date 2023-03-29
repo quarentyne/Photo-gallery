@@ -3,7 +3,7 @@ import { Home } from '../../pages/Home/Home';
 enum ROUTES_PATHS_TEMPLATE {
   HOME = '/',
   USER = '/users/:username',
-  TOPIC = '/:topicId',
+  TOPIC = '/topic/:topicId',
   PHOTO = '/photos/:id',
   NOT_FOUND = '*',
 }

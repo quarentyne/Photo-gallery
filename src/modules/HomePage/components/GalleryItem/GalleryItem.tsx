@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import { ROUTES_PATHS } from '../../../../shared/constants';
 import { StyledItemImage, StyledItemLink } from './styles';
 

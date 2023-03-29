@@ -1,12 +1,8 @@
-import { ROUTES_PATHS } from '../../../../shared/constants';
 import {
-  StyledAuthorBlock,
-  StyledAuthorLink,
   StyledBannerBackground,
   StyledBannerContainer,
   StyledBannerImageBlock,
   StyledBannerPhoto,
-  StyledBannerTextBlock,
   StyledBannerWrapper,
 } from './styles';
 
@@ -28,15 +24,8 @@ export const Banner = ({
       <StyledBannerContainer>
         <StyledBannerImageBlock>
           <StyledBannerPhoto src={imageURL} alt={description} />
-        </StyledBannerImageBlock>
-        <StyledBannerTextBlock>
           <StyledBannerBackground />
-          <StyledAuthorBlock>
-            <StyledAuthorLink to={`${ROUTES_PATHS.USER}${authorId}`}>
-              {authorName}
-            </StyledAuthorLink>
-          </StyledAuthorBlock>
-        </StyledBannerTextBlock>
+        </StyledBannerImageBlock>
       </StyledBannerContainer>
     </StyledBannerWrapper>
   );

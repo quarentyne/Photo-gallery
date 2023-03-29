@@ -15,10 +15,11 @@ const homePageSlice = createSlice({
       state.error = action.error.errors;
       state.isLoading = false;
     });
-    builder.addCase(getPhotos.fulfilled, (state, action) => {
-      state.photos = [...state.photos, ...action.payload];
+    builder.addCase(getPhotos.fulfilled, (state, action) => {      
+      state.photos = action.meta.arg.page === 1 ? action.payload : [...state.photos, ...action.payload];
       state.isLoading = false;
       state.page = state.page + 1;
+      state.topicId = action.meta.arg.topicId;
     });
     builder.addCase(getBannerPhoto.pending, state => {
       state.error = null;

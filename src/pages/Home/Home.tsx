@@ -22,10 +22,10 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(getBannerPhoto());
-  }, [dispatch, topicId]);
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getPhotos({ page, per_page: PER_PAGE, topicId }));
+    dispatch(getPhotos({ page: 1, per_page: PER_PAGE, topicId }));
   }, [dispatch, topicId]);
 
   const loadMorePhotos = () => {
