@@ -8,7 +8,6 @@ interface IHomePageState {
   bannerPhoto: IPhoto | null;
   error: string[] | null;
   page: number;
-  topicId?: string;
 };
 
 export const initialState: IHomePageState = {
