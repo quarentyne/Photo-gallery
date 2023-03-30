@@ -5,7 +5,7 @@ export const StyledPhotoCardWrapper = styled.div`
   margin: 0 auto;
   max-width: 80vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
 `;
 
@@ -18,7 +18,7 @@ export const StyledControlBlock = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 15px;
+  margin-bottom: 15px;
   padding: 5px;
 `;
 
