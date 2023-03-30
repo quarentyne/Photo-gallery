@@ -1,12 +1,14 @@
 import { IPhoto } from '../../../../models';
+import { Loader } from '../../../../shared/components';
 import { GalleryItem } from '../GalleryItem';
 import { StyledGalleryContainer, StyledGalleryWrapper } from './styles';
 
-interface IPhotos {
+interface IGallery {
   photos: IPhoto[];
+  isLoading: boolean;
 }
 
-export const GalleryList = ({ photos }: IPhotos) => {
+export const GalleryList = ({ photos, isLoading }: IGallery) => {
   return (
     <StyledGalleryWrapper>
       <StyledGalleryContainer>
@@ -19,6 +21,7 @@ export const GalleryList = ({ photos }: IPhotos) => {
           />
         ))}
       </StyledGalleryContainer>
+      {isLoading && <Loader />}
     </StyledGalleryWrapper>
   );
 };

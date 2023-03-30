@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { BannerPhotoAPI, IApiError, PhotosAPI } from "../../../api";
-import { HOME_PAGE_SLICE_NAME, IGetBannerPhotoResponse, IGetPhotosDTO, IGetPhotosResponse } from "./models";
+import { IApiError, HomePageAPI } from "../../../api";
+import { HOME_PAGE_SLICE_NAME, IGetBannerPhotoResponse, IGetGalleryPhotosDTO, IGetGalleryPhotosResponse } from "./models";
 
-export const getPhotos = createAsyncThunk<IGetPhotosResponse[], IGetPhotosDTO, {serializedErrorType: IApiError}>(
+export const getPhotos = createAsyncThunk<IGetGalleryPhotosResponse[], IGetGalleryPhotosDTO, {serializedErrorType: IApiError}>(
   `${HOME_PAGE_SLICE_NAME}/getPhotos`,
-  async function(data: IGetPhotosDTO){
-    const response = await PhotosAPI.getPhotos(data);
+  async function(data: IGetGalleryPhotosDTO){
+    const response = await HomePageAPI.getGalleryPhotos(data);
     return response.data;
   }
 );
@@ -13,7 +13,7 @@ export const getPhotos = createAsyncThunk<IGetPhotosResponse[], IGetPhotosDTO, {
 export const getBannerPhoto = createAsyncThunk<IGetBannerPhotoResponse, void, {serializedErrorType: IApiError}>(
   `${HOME_PAGE_SLICE_NAME}/getBannerPhoto`,
   async function(){
-    const response = await BannerPhotoAPI.getPhoto();
+    const response = await HomePageAPI.getBannerPhoto();
     return response.data;
   }
 );

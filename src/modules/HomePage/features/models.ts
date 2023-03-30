@@ -18,14 +18,14 @@ export const initialState: IHomePageState = {
   page: 1,
 };
 
-export interface IGetPhotosResponse { 
+export interface IGetGalleryPhotosResponse { 
   id: string;
   description: string;
   urls: IPhotoUrls;
   user: IPhotoAuthorInfo;
 };
 
-export interface IGetPhotosDTO {
+export interface IGetGalleryPhotosDTO {
   page: number;
   per_page: number;
   topicId?: string;

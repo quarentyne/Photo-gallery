@@ -10,6 +10,7 @@ import {
   getBannerPhoto,
   getPhotos,
   paginationSelector,
+  galleryLoadingStatusSelector,
   photosSelector,
 } from '../../modules/HomePage';
 
@@ -18,6 +19,7 @@ export const Home = () => {
   const bannerPhoto = useAppSelector(bannerPhotoSelector);
   const page = useAppSelector(paginationSelector);
   const photos = useAppSelector(photosSelector);
+  const isGalleryLoading = useAppSelector(galleryLoadingStatusSelector);
   const { topicId } = useParams();
 
   useEffect(() => {
@@ -42,7 +44,7 @@ export const Home = () => {
           authorName={bannerPhoto.user.name}
         />
       )}
-      <GalleryList photos={photos} />
+      <GalleryList photos={photos} isLoading={isGalleryLoading} />
       <LoadMoreButton onClick={loadMorePhotos} />
     </>
   );
