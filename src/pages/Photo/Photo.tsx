@@ -35,7 +35,7 @@ export const Photo = () => {
           authorName={photo.user.name}
           photoDescription={photo.description}
           photoUrl={photo.urls.regular}
-          authorId={photo.user.id}
+          authorUsername={photo.user.username}
           onGoBackButtonClick={goBackHandler}
         />
       )}

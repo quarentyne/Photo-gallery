@@ -8,7 +8,7 @@ import {
 } from './styles';
 
 interface IPhotoCard {
-  authorId: string;
+  authorUsername: string;
   authorName: string;
   photoUrl: string;
   photoDescription: string;
@@ -17,7 +17,7 @@ interface IPhotoCard {
 
 export const PhotoCard = ({
   authorName,
-  authorId,
+  authorUsername,
   photoUrl,
   photoDescription,
   onGoBackButtonClick,
@@ -29,7 +29,7 @@ export const PhotoCard = ({
         <StyledControlButton onClick={onGoBackButtonClick}>
           Go back
         </StyledControlButton>
-        <Link to={`${ROUTES_PATHS.USER}${authorId}`}>
+        <Link to={`${ROUTES_PATHS.USER}${authorUsername}`}>
           <StyledControlButton>{authorName}</StyledControlButton>
         </Link>
       </StyledControlBlock>
