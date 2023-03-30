@@ -8,7 +8,7 @@ import {
   bannerPhotoSelector,
   GalleryList,
   getBannerPhoto,
-  getPhotos,
+  getGalleryPhotos,
   paginationSelector,
   galleryLoadingStatusSelector,
   photosSelector,
@@ -27,11 +27,11 @@ export const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getPhotos({ page: 1, per_page: PER_PAGE, topicId }));
+    dispatch(getGalleryPhotos({ page: 1, per_page: PER_PAGE, topicId }));
   }, [dispatch, topicId]);
 
   const loadMorePhotos = useCallback(() => {
-    dispatch(getPhotos({ page, per_page: PER_PAGE, topicId }));
+    dispatch(getGalleryPhotos({ page, per_page: PER_PAGE, topicId }));
   }, [dispatch, page, topicId]);
 
   return (

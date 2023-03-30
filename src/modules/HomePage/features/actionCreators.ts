@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IApiError, HomePageAPI } from "../../../api";
 import { HOME_PAGE_SLICE_NAME, IGetBannerPhotoResponse, IGetGalleryPhotosDTO, IGetGalleryPhotosResponse } from "./models";
 
-export const getPhotos = createAsyncThunk<IGetGalleryPhotosResponse[], IGetGalleryPhotosDTO, {serializedErrorType: IApiError}>(
+export const getGalleryPhotos = createAsyncThunk<IGetGalleryPhotosResponse[], IGetGalleryPhotosDTO, {serializedErrorType: IApiError}>(
   `${HOME_PAGE_SLICE_NAME}/getPhotos`,
   async function(data: IGetGalleryPhotosDTO){
     const response = await HomePageAPI.getGalleryPhotos(data);
