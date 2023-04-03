@@ -20,12 +20,6 @@ const homePageSlice = createSlice({
       state.isLoading = false;
       state.page = action.meta.arg.page + 1;
     });
-    builder.addCase(getBannerPhoto.pending, state => {
-      state.error = null;
-    });
-    builder.addCase(getBannerPhoto.rejected, (state, action) => {
-      state.error = action.error.errors;
-    });
     builder.addCase(getBannerPhoto.fulfilled, (state, action) => {
       state.bannerPhoto = action.payload;
     });
