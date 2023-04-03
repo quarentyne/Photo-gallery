@@ -40,8 +40,6 @@ export const Home = () => {
         <Banner
           description={bannerPhoto.description}
           imageURL={bannerPhoto.urls.regular}
-          authorId={bannerPhoto.user.id}
-          authorName={bannerPhoto.user.name}
         />
       )}
       <GalleryList photos={photos} isLoading={isGalleryLoading} />
