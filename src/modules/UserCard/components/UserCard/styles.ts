@@ -12,8 +12,6 @@ export const StyledUserCardWrapper = styled.div`
 `;
 
 export const StyledUserImageBlock = styled.div`
-  max-width: 40%;
-  width: 100%;
   display: flex;
   justify-content: end;
   align-items: start;
@@ -30,7 +28,6 @@ export const StyledUserInfoBlock = styled.div`
   display: flex;
   row-gap: 16px;
   flex-direction: column;
-  max-width: 60%;
 `;
 
 export const StyledUserName = styled.div`
@@ -41,7 +38,7 @@ export const StyledUserName = styled.div`
 export const StyledUserBio = styled.div`
   overflow-wrap: break-word;
   white-space: pre-line;
-  max-width: 70%;
+  max-width: 80%;
 `;
 
 export const StyledUserStatisticBlock = styled.ul`
