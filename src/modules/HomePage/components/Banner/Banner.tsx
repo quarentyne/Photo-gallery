@@ -8,17 +8,10 @@ import {
 
 interface IBanner {
   imageURL: string;
-  authorId: string;
   description: string;
-  authorName: string;
 }
 
-export const Banner = ({
-  imageURL,
-  description,
-  authorId,
-  authorName,
-}: IBanner) => {
+export const Banner = ({ imageURL, description }: IBanner) => {
   return (
     <StyledBannerWrapper>
       <StyledBannerContainer>
