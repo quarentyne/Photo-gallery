@@ -42,5 +42,4 @@ export const StyledBannerBackground = styled.div`
 
 export const StyledBannerPhoto = styled.img`
   width: 100%;
-  height: 100;
 `;
