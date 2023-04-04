@@ -14,9 +14,9 @@ export const StyledGalleryContainer = styled.div`
   row-gap: 24px;
   grid-template-columns: 1fr;
   @media screen and ${DEVICES.MOBILE_XL}{
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(2, 1fr);
   };
   @media screen and ${DEVICES.TABLET}{
-    grid-template-columns: repeat(3, 1fr)
+    grid-template-columns: repeat(3, 1fr);
   };
 `;

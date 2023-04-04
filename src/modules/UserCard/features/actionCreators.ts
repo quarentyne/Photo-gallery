@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IApiError } from "../../../api";
-import { UserCardAPI } from "../../../api/UserCardAPI";
+import { IApiError, UserCardAPI } from "../../../api";
 import { IGetUserInfoDTO, IGetUserInfoResponse, USER_CARD_SLICE_NAME } from "./models";
 
 export const getUserInfo = createAsyncThunk<IGetUserInfoResponse, IGetUserInfoDTO, {serializedErrorType: IApiError}>(

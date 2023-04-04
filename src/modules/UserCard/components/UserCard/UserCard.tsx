@@ -36,15 +36,15 @@ export const UserCard = ({
         <StyledUserBio>{bio}</StyledUserBio>
         <StyledUserStatisticBlock>
           <li>
-            Total photos:{' '}
+            {`Total photos: `}
             <StyledUserStatisticData>{totalPhotos}</StyledUserStatisticData>
           </li>
           <li>
-            Total likes:{' '}
+            {`Total likes: `}
             <StyledUserStatisticData>{totalLikes}</StyledUserStatisticData>
           </li>
           <li>
-            Followers:{' '}
+            {`Followers: `}
             <StyledUserStatisticData>{followersCount}</StyledUserStatisticData>
           </li>
         </StyledUserStatisticBlock>

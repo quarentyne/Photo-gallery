@@ -1,4 +1,4 @@
-import { RouterConfig } from './router';
+import { RouterConfig } from './router/Config';
 import { GlobalStyle } from './styles';
 
 const App = () => {

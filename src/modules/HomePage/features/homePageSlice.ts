@@ -15,10 +15,11 @@ const homePageSlice = createSlice({
       state.error = action.error.errors;
       state.isLoading = false;
     });
-    builder.addCase(getGalleryPhotos.fulfilled, (state, action) => {      
-      state.photos = action.meta.arg.page === 1 ? action.payload : [...state.photos, ...action.payload];
+    builder.addCase(getGalleryPhotos.fulfilled, (state, action) => {     
+      const { meta } = action; 
+      state.photos = meta.arg.page === 1 ? action.payload : [...state.photos, ...action.payload];
       state.isLoading = false;
-      state.page = action.meta.arg.page + 1;
+      state.page = meta.arg.page + 1;
     });
     builder.addCase(getBannerPhoto.fulfilled, (state, action) => {
       state.bannerPhoto = action.payload;
