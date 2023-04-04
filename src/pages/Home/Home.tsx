@@ -23,7 +23,7 @@ export const Home = () => {
   const { topicId } = useParams();
 
   useEffect(() => {
-    dispatch(getBannerPhoto());
+    dispatch(getBannerPhoto({}));
   }, [dispatch]);
 
   useEffect(() => {

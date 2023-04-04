@@ -10,7 +10,7 @@ export const getGalleryPhotos = createAsyncThunk<TGetGalleryPhotosResponse, IGet
   }
 );
 
-export const getBannerPhoto = createAsyncThunk<IGetBannerPhotoResponse, void, {serializedErrorType: IApiError}>(
+export const getBannerPhoto = createAsyncThunk<IGetBannerPhotoResponse, unknown, {serializedErrorType: IApiError}>(
   `${HOME_PAGE_SLICE_NAME}/getBannerPhoto`,
   async function(){
     const response = await HomePageAPI.getBannerPhoto();
