@@ -18,8 +18,4 @@ export const initialState: ITopicsState = {
   isLoading: false,
 };
 
-export interface IGetTopicsResponse { 
-  id: string;
-  slug: string;
-  title: string;
-};
+export type TGetTopicsResponse = ITopic[];

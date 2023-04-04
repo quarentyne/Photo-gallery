@@ -11,7 +11,7 @@ import {
 export const NavigationMenu = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(getTopics());
+    dispatch(getTopics({}));
   }, [dispatch]);
 
   const topics = useAppSelector(topicsSelector);
