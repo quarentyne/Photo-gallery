@@ -18,12 +18,7 @@ export const initialState: IHomePageState = {
   page: 1,
 };
 
-export interface IGetGalleryPhotosResponse { 
-  id: string;
-  description: string;
-  urls: IPhotoUrls;
-  user: IPhotoAuthorInfo;
-};
+export type TGetGalleryPhotosResponse = IPhoto[];
 
 export interface IGetGalleryPhotosDTO {
   page: number;
