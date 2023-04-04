@@ -25,6 +25,7 @@ export const StyledUserImage = styled.img`
 `;
 
 export const StyledUserInfoBlock = styled.div`
+  max-width: 50%;
   display: flex;
   row-gap: 16px;
   flex-direction: column;
@@ -38,7 +39,6 @@ export const StyledUserName = styled.div`
 export const StyledUserBio = styled.div`
   overflow-wrap: break-word;
   white-space: pre-line;
-  max-width: 80%;
 `;
 
 export const StyledUserStatisticBlock = styled.ul`
