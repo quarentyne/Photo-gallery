@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS } from "../../../../shared/constants/themes";
+import { COLORS } from "../../constants/themes";
 
 export const StyledSearchForm = styled.form`
   display: flex;

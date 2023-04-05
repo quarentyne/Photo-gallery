@@ -6,7 +6,7 @@ import {
 } from './styles';
 import logo from '../../../assets/svg/logo.svg';
 import { ROUTES_PATHS } from '../../constants';
-import { SearchBar } from '../../../modules/SearchPage';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export const Header = () => {
   return (

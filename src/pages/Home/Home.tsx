@@ -12,7 +12,11 @@ import {
   paginationSelector,
   galleryLoadingStatusSelector,
   photosSelector,
+  getPhotosByQuery,
+  totalPagesSelector,
+  errorSelector,
 } from '../../modules/HomePage';
+import { StyledErrorMessage } from './style';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
@@ -20,19 +24,45 @@ export const Home = () => {
   const page = useAppSelector(paginationSelector);
   const photos = useAppSelector(photosSelector);
   const isGalleryLoading = useAppSelector(galleryLoadingStatusSelector);
-  const { topicId } = useParams();
+  const totalPages = useAppSelector(totalPagesSelector);
+  const error = useAppSelector(errorSelector);
+  const { topicId, query } = useParams();
 
   useEffect(() => {
     dispatch(getBannerPhoto({}));
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getGalleryPhotos({ page: 1, per_page: PER_PAGE, topicId }));
-  }, [dispatch, topicId]);
+    if (query) {
+      dispatch(getPhotosByQuery({ query, per_page: PER_PAGE, page: 1 }));
+    } else {
+      dispatch(getGalleryPhotos({ page: 1, per_page: PER_PAGE, topicId }));
+    }
+  }, [dispatch, topicId, query]);
 
   const loadMorePhotos = useCallback(() => {
-    dispatch(getGalleryPhotos({ page, per_page: PER_PAGE, topicId }));
-  }, [dispatch, page, topicId]);
+    if (query) {
+      dispatch(getPhotosByQuery({ query, per_page: PER_PAGE, page }));
+    } else {
+      dispatch(getGalleryPhotos({ page, per_page: PER_PAGE, topicId }));
+    }
+  }, [dispatch, page, topicId, query]);
+
+  if (!photos.length) {
+    return (
+      <StyledErrorMessage>
+        We didn't find anything. Try another query
+      </StyledErrorMessage>
+    );
+  }
+
+  if (error) {
+    return (
+      <StyledErrorMessage>
+        An error occurred. Try again later
+      </StyledErrorMessage>
+    );
+  }
 
   return (
     <>
@@ -43,7 +73,7 @@ export const Home = () => {
         />
       )}
       <GalleryList photos={photos} isLoading={isGalleryLoading} />
-      <LoadMoreButton onClick={loadMorePhotos} />
+      {totalPages >= page ? <LoadMoreButton onClick={loadMorePhotos} /> : null}
     </>
   );
 };

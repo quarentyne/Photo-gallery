@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBannerPhoto, getGalleryPhotos } from "./actionCreators";
+import { getBannerPhoto, getGalleryPhotos, getPhotosByQuery } from "./actionCreators";
 import { HOME_PAGE_SLICE_NAME, initialState } from "./models";
 
 const homePageSlice = createSlice({
@@ -20,9 +20,25 @@ const homePageSlice = createSlice({
       state.photos = meta.arg.page === 1 ? action.payload : [...state.photos, ...action.payload];
       state.isLoading = false;
       state.page = meta.arg.page + 1;
+      state.totalPages = Infinity;
     });
     builder.addCase(getBannerPhoto.fulfilled, (state, action) => {
       state.bannerPhoto = action.payload;
+    });
+    builder.addCase(getPhotosByQuery.pending, state => {
+      state.error = null;
+      state.isLoading = true;
+    });
+    builder.addCase(getPhotosByQuery.rejected, (state, action) => {
+      state.error = action.error.errors;
+      state.isLoading = false;
+    });
+    builder.addCase(getPhotosByQuery.fulfilled, (state, action) => {
+      const { meta, payload } = action;
+      state.isLoading = false;
+      state.totalPages = payload.total_pages;
+      state.photos = meta.arg.page === 1 ? payload.results : [...state.photos, ...payload.results];
+      state.page = meta.arg.page + 1;
     });
   },
 });
