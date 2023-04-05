@@ -1,5 +1,6 @@
 import { Home } from '../../pages/Home/Home';
 import { Photo } from '../../pages/Photo/Photo';
+import { Search } from '../../pages/Search/Search';
 import { User } from '../../pages/User/User';
 
 export enum ROUTES_PATHS {
@@ -7,6 +8,7 @@ export enum ROUTES_PATHS {
   TOPIC = '/topic',
   USER = '/users',
   PHOTO = '/photos',
+  SEARCH = '/search',
 }
 
 interface IRoute {
@@ -30,5 +32,9 @@ export const ROUTES: IRoute[] = [
   {
     path: `${ROUTES_PATHS.USER}/:username`,
     component: <User />,
+  },
+  {
+    path: ROUTES_PATHS.SEARCH,
+    component: <Search />,
   },
 ];

@@ -3,6 +3,7 @@ import topicsSlice from '../modules/Topics/features/topicsSlice';
 import homePageSlice from '../modules/HomePage/features/homePageSlice';
 import photoCardSlice from '../modules/PhotoCard/features/photoCardSlice';
 import userCardSlice from '../modules/UserCard/features/userCardSlice';
+import searchPageSlice from '../modules/SearchPage/features/searchPageSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     homePage: homePageSlice,
     photoCard: photoCardSlice,
     userCard: userCardSlice,
+    searchPage: searchPageSlice,
   },
 });
 

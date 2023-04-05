@@ -16,3 +16,8 @@ export const StyledHeaderWrapper = styled.header`
 export const StyledHeaderLogo = styled.img`
   width: 36px;
 `;
+
+export const StyledSearchPanel = styled.div`
+  margin-left: 40px;
+  width: 100%;
+`;

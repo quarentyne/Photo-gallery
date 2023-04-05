@@ -4,6 +4,7 @@ export enum API_ENDPOINTS {
   PHOTOS = '/photos',
   RANDOM_PHOTOS = '/photos/random',
   USERS = '/users',
+  SEARCH_PHOTOS = '/search/photos',
 };
 
 export const AUTHORIZATION_PARAMS = {
