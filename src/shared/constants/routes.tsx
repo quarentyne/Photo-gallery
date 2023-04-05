@@ -2,12 +2,11 @@ import { Home } from '../../pages/Home/Home';
 import { Photo } from '../../pages/Photo/Photo';
 import { User } from '../../pages/User/User';
 
-enum ROUTES_PATHS_TEMPLATE {
+export enum ROUTES_PATHS {
   HOME = '/',
-  USER = '/users/:username',
-  TOPIC = '/topic/:topicId',
-  PHOTO = '/photos/:id',
-  NOT_FOUND = '*',
+  TOPIC = '/topic/',
+  USER = '/users/',
+  PHOTO = '/photos/',
 }
 
 interface IRoute {
@@ -17,26 +16,19 @@ interface IRoute {
 
 export const ROUTES: IRoute[] = [
   {
-    path: ROUTES_PATHS_TEMPLATE.HOME,
+    path: ROUTES_PATHS.HOME,
     component: <Home />,
   },
   {
-    path: ROUTES_PATHS_TEMPLATE.TOPIC,
+    path: `${ROUTES_PATHS.TOPIC}:topicId`,
     component: <Home />,
   },
   {
-    path: ROUTES_PATHS_TEMPLATE.PHOTO,
+    path: `${ROUTES_PATHS.PHOTO}:id`,
     component: <Photo />,
   },
   {
-    path: ROUTES_PATHS_TEMPLATE.USER,
+    path: `${ROUTES_PATHS.USER}:username`,
     component: <User />,
   },
 ];
-
-export enum ROUTES_PATHS {
-  HOME = '/',
-  TOPIC = '/topic/',
-  USER = '/users/',
-  PHOTO = '/photos/',
-}
