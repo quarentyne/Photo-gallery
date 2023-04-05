@@ -29,7 +29,7 @@ export const PhotoCard = ({
         <StyledControlButton onClick={onGoBackButtonClick}>
           Go back
         </StyledControlButton>
-        <Link to={`${ROUTES_PATHS.USER}${authorUsername}`}>
+        <Link to={`${ROUTES_PATHS.USER}/${authorUsername}`}>
           <StyledControlButton>{authorName}</StyledControlButton>
         </Link>
       </StyledControlBlock>

@@ -8,6 +8,6 @@ export class HomePageAPI {
     return httpGet<IGetBannerPhotoResponse>(`${BASE_API_URL}${API_ENDPOINTS.RANDOM_PHOTOS}`);
   };
   static getGalleryPhotos(data: IGetGalleryPhotosDTO): Promise<AxiosResponse<TGetGalleryPhotosResponse>> {
-    return httpGet<TGetGalleryPhotosResponse>(`${BASE_API_URL}${data.topicId ? `${API_ENDPOINTS.TOPICS}${data.topicId}` : ''}${API_ENDPOINTS.PHOTOS}`, data);
+    return httpGet<TGetGalleryPhotosResponse>(`${BASE_API_URL}${data.topicId ? `${API_ENDPOINTS.TOPICS}/${data.topicId}` : ''}${API_ENDPOINTS.PHOTOS}`, data);
   };
 };

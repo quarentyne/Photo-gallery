@@ -5,6 +5,6 @@ import { httpGet } from "../shared/helpers";
 
 export class PhotoCardAPI {
   static getPhoto(data: IGetPhotoCardDTO): Promise<AxiosResponse<IGetPhotoCardResponse>> {
-    return httpGet<IGetPhotoCardResponse>(`${BASE_API_URL}${API_ENDPOINTS.PHOTOS}${data.id}`);
+    return httpGet<IGetPhotoCardResponse>(`${BASE_API_URL}${API_ENDPOINTS.PHOTOS}/${data.id}`);
   };
 };

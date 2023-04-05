@@ -9,7 +9,7 @@ interface IGalleryItem {
 
 export const GalleryItem = ({ id, description, url }: IGalleryItem) => {
   return (
-    <StyledItemLink to={`${ROUTES_PATHS.PHOTO}${id}`}>
+    <StyledItemLink to={`${ROUTES_PATHS.PHOTO}/${id}`}>
       <StyledItemImage src={url} alt={description} />
     </StyledItemLink>
   );

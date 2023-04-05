@@ -5,6 +5,6 @@ import { httpGet } from "../shared/helpers";
 
 export class UserCardAPI {
   static getUserInfo({ username }: IGetUserInfoDTO): Promise<AxiosResponse<IGetUserInfoResponse>> {
-    return httpGet<IGetUserInfoResponse>(`${BASE_API_URL}${API_ENDPOINTS.USERS}${username}`);
+    return httpGet<IGetUserInfoResponse>(`${BASE_API_URL}${API_ENDPOINTS.USERS}/${username}`);
   };
 };

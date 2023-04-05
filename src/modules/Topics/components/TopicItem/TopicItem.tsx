@@ -8,6 +8,6 @@ interface ITopicItem {
 
 export const TopicItem = ({ id, title }: ITopicItem) => {
   return (
-    <StyledNavLink to={`${ROUTES_PATHS.TOPIC}${id}`}>{title}</StyledNavLink>
+    <StyledNavLink to={`${ROUTES_PATHS.TOPIC}/${id}`}>{title}</StyledNavLink>
   );
 };
