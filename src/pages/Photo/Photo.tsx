@@ -6,7 +6,7 @@ import {
   photoSelector,
   photoLoadingStatusSelector,
 } from '../../modules/PhotoCard';
-import { Spinner } from '../../shared/components';
+import { Loader } from '../../shared/components';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
 export const Photo = () => {
@@ -23,7 +23,7 @@ export const Photo = () => {
   }, [dispatch, id]);
 
   if (isLoading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   const goBackHandler = () => navigate(-1);

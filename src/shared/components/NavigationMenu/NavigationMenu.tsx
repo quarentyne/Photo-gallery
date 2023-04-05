@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { TopicItem, topicsSelector } from '../../../modules/Topics';
-import { getTopics } from '../../../modules/Topics/features/actionCreators';
-import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
   StyledListItem,
   StyledMenuList,
   StyledNavigationListWrapper,
 } from './styles';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { getTopics } from '../../../modules/Topics/features/actionCreators';
+import { TopicItem, topicsSelector } from '../../../modules/Topics';
 
 export const NavigationMenu = () => {
   const dispatch = useAppDispatch();
@@ -21,7 +21,7 @@ export const NavigationMenu = () => {
       <StyledMenuList>
         {topics?.map((topic) => (
           <StyledListItem key={topic.id}>
-            <TopicItem id={topic.id} title={topic.title} />
+            <TopicItem title={topic.title} id={topic.id} />
           </StyledListItem>
         ))}
       </StyledMenuList>

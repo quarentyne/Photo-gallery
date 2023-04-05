@@ -1,6 +1,6 @@
 import { StyledLoaderBlock } from './styles';
 
-export const Spinner = () => {
+export const Loader = () => {
   return (
     <StyledLoaderBlock>
       <svg

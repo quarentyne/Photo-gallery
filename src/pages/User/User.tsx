@@ -6,7 +6,7 @@ import {
   userLoadingStatusSelector,
   userSelector,
 } from '../../modules/UserCard';
-import { Spinner } from '../../shared/components';
+import { Loader } from '../../shared/components';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 
 export const User = () => {
@@ -22,7 +22,7 @@ export const User = () => {
   }, [dispatch, username]);
 
   if (isLoading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   return (

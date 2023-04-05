@@ -1,5 +1,5 @@
 import { IPhoto } from '../../../../models';
-import { Spinner } from '../../../../shared/components';
+import { Loader } from '../../../../shared/components';
 import { GalleryItem } from '../GalleryItem/GalleryItem';
 import { StyledGalleryContainer, StyledGalleryWrapper } from './styles';
 
@@ -21,7 +21,7 @@ export const GalleryList = ({ photos, isLoading }: IGallery) => {
           />
         ))}
       </StyledGalleryContainer>
-      {isLoading && <Spinner />}
+      {isLoading && <Loader />}
     </StyledGalleryWrapper>
   );
 };
