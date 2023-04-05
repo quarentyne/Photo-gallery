@@ -12,17 +12,20 @@ export const SearchBar = () => {
     e.target.value = '';
   };
 
-  const debouncedResults = useMemo(() => debounce(handleChange, 1000), []);
+  const debouncedChangeHandler = useMemo(
+    () => debounce(handleChange, 1000),
+    []
+  );
 
   useEffect(() => {
     return () => {
-      debouncedResults.cancel();
+      debouncedChangeHandler.cancel();
     };
   });
 
   return (
     <StyledSearchInput
-      onChange={debouncedResults}
+      onChange={debouncedChangeHandler}
       placeholder="Search photos"
     />
   );
