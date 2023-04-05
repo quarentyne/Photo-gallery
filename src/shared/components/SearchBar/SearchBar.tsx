@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ChangeEvent, useEffect, useMemo } from 'react';
+import { ChangeEvent, useMemo, useEffect } from 'react';
 import debounce from 'lodash.debounce';
 import { StyledSearchInput } from './styles';
 import { ROUTES_PATHS } from '../../constants';
@@ -12,9 +12,7 @@ export const SearchBar = () => {
     e.target.value = '';
   };
 
-  const debouncedResults = useMemo(() => {
-    return debounce(handleChange, 1000);
-  }, []);
+  const debouncedResults = useMemo(() => debounce(handleChange, 1000), []);
 
   useEffect(() => {
     return () => {

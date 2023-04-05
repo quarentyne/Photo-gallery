@@ -16,8 +16,8 @@ const homePageSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(getGalleryPhotos.fulfilled, (state, action) => {     
-      const { meta } = action; 
-      state.photos = meta.arg.page === 1 ? action.payload : [...state.photos, ...action.payload];
+      const { meta, payload } = action; 
+      state.photos = meta.arg.page === 1 ? payload : [...state.photos, ...payload];
       state.isLoading = false;
       state.page = meta.arg.page + 1;
       state.totalPages = Infinity;
