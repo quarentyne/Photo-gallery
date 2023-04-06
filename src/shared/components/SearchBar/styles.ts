@@ -4,18 +4,21 @@ import { COLORS } from "../../constants/themes";
 export const StyledSearchForm = styled.form`
   display: flex;
   align-items: center;
+  border: 1px solid ${COLORS.GREY};
+  transition: 0.15s ease;
 `;
 
 export const StyledSearchInput = styled.input`
   width: 100%;
-  border: 1px solid ${COLORS.WHITE};
   padding: 5px 10px;
-  border-radius: 24px;
-  transition: 0.15s ease;
-  &:hover {
-    border-color: ${COLORS.GREY};
+  border: none;
+  &:focus{
+    outline: none;
   };
-  &active {
-    border-color: ${COLORS.GREY};
-  };
+`;
+
+export const StyledSearchButton = styled.button`
+  border: none;
+  background-color: ${COLORS.GREY};
+  padding: 5px 10px;
 `;
