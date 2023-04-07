@@ -8,14 +8,19 @@ import logo from '../../../assets/svg/logo.svg';
 import { ROUTES_PATHS } from '../../constants';
 import { SearchBar } from '../SearchBar/SearchBar';
 
-export const Header = () => {
+interface IHeader {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+}
+
+export const Header = ({ searchQuery, setSearchQuery }: IHeader) => {
   return (
     <StyledHeaderWrapper>
       <Link to={ROUTES_PATHS.HOME}>
         <StyledHeaderLogo src={logo} alt="logo" />
       </Link>
       <StyledSearchPanel>
-        <SearchBar />
+        <SearchBar query={searchQuery} setQuery={setSearchQuery} />
       </StyledSearchPanel>
     </StyledHeaderWrapper>
   );

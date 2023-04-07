@@ -1,6 +1,10 @@
 import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../shared/hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useSearchQueryState,
+} from '../../shared/hooks';
 import { PER_PAGE } from '../../shared/constants';
 import { LoadMoreButton } from '../../shared/components';
 import {
@@ -26,27 +30,26 @@ export const Home = () => {
   const isGalleryLoading = useAppSelector(galleryLoadingStatusSelector);
   const totalPages = useAppSelector(totalPagesSelector);
   const error = useAppSelector(errorSelector);
-  const { topicId, query } = useParams();
+  const { topicId } = useParams();
+  const { searchQuery } = useSearchQueryState();
 
   useEffect(() => {
     dispatch(getBannerPhoto({}));
   }, [dispatch]);
 
   useEffect(() => {
-    if (query) {
-      dispatch(getPhotosByQuery({ query, per_page: PER_PAGE, page: 1 }));
-    } else {
-      dispatch(getGalleryPhotos({ page: 1, per_page: PER_PAGE, topicId }));
-    }
-  }, [dispatch, topicId, query]);
+    dispatch(getGalleryPhotos({ page: 1, per_page: PER_PAGE, topicId }));
+  }, [dispatch, topicId]);
 
   const loadMorePhotos = useCallback(() => {
-    if (query) {
-      dispatch(getPhotosByQuery({ query, per_page: PER_PAGE, page }));
+    if (searchQuery) {
+      dispatch(
+        getPhotosByQuery({ query: searchQuery, per_page: PER_PAGE, page })
+      );
     } else {
       dispatch(getGalleryPhotos({ page, per_page: PER_PAGE, topicId }));
     }
-  }, [dispatch, page, topicId, query]);
+  }, [dispatch, page, topicId, searchQuery]);
 
   if (!photos.length) {
     return (
