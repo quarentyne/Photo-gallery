@@ -32,8 +32,4 @@ export const ROUTES: IRoute[] = [
     path: `${ROUTES_PATHS.USER}/:username`,
     component: <User />,
   },
-  {
-    path: `${ROUTES_PATHS.SEARCH}/:query`,
-    component: <Home />,
-  },
 ];

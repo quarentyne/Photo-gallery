@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useMemo, useEffect, FormEvent } from 'react';
 import debounce from 'lodash.debounce';
 import {
@@ -6,7 +5,7 @@ import {
   StyledSearchForm,
   StyledSearchButton,
 } from './styles';
-import { PER_PAGE, ROUTES_PATHS } from '../../constants';
+import { PER_PAGE } from '../../constants';
 import { useAppDispatch } from '../../hooks';
 import { getPhotosByQuery } from '../../../modules/HomePage';
 
@@ -16,7 +15,6 @@ interface ISearchBar {
 }
 
 export const SearchBar = ({ query, setQuery }: ISearchBar) => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +27,6 @@ export const SearchBar = ({ query, setQuery }: ISearchBar) => {
     if (!query) {
       return;
     }
-    navigate(`${ROUTES_PATHS.SEARCH}/${query}`);
     dispatch(getPhotosByQuery({ query, page: 1, per_page: PER_PAGE }));
   };
 
