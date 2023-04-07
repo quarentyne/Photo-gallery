@@ -33,6 +33,13 @@ export const Home = () => {
   const { topicId } = useParams();
   const { searchQuery } = useSearchQueryState();
 
+  const isLastPage = () => {
+    if (!totalPages) {
+      return true;
+    }
+    return totalPages >= page;
+  };
+
   useEffect(() => {
     dispatch(getBannerPhoto({}));
   }, [dispatch]);
@@ -76,7 +83,7 @@ export const Home = () => {
         />
       )}
       <GalleryList photos={photos} isLoading={isGalleryLoading} />
-      {totalPages >= page ? <LoadMoreButton onClick={loadMorePhotos} /> : null}
+      <LoadMoreButton onClick={loadMorePhotos} isVisible={isLastPage()} />
     </>
   );
 };

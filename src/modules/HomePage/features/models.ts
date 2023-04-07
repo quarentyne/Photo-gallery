@@ -8,7 +8,7 @@ interface IHomePageState {
   bannerPhoto: IPhoto | null;
   error: string[] | null;
   page: number;
-  totalPages: number;
+  totalPages: number | null;
 };
 
 export const initialState: IHomePageState = {
@@ -17,7 +17,7 @@ export const initialState: IHomePageState = {
   bannerPhoto: null,
   error: null,
   page: 1,
-  totalPages: Infinity,
+  totalPages: null,
 };
 
 export type TGetGalleryPhotosResponse = IPhoto[];

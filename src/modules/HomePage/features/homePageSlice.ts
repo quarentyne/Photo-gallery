@@ -20,7 +20,7 @@ const homePageSlice = createSlice({
       state.photos = meta.arg.page === 1 ? payload : [...state.photos, ...payload];
       state.isLoading = false;
       state.page = meta.arg.page + 1;
-      state.totalPages = Infinity;
+      state.totalPages = null;
     });
     builder.addCase(getBannerPhoto.fulfilled, (state, action) => {
       state.bannerPhoto = action.payload;
