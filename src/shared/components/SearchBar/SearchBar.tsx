@@ -20,7 +20,8 @@ export const SearchBar = ({ query, setQuery }: ISearchBar) => {
   const dispatch = useAppDispatch();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    const value = e.target.value.trim();
+    setQuery(value);
   };
 
   const handleSubmit = (e: FormEvent) => {
