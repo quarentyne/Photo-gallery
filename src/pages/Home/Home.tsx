@@ -1,10 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useSearchQueryState,
-} from '../../shared/hooks';
+import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 import { PER_PAGE } from '../../shared/constants';
 import { LoadMoreButton } from '../../shared/components';
 import {
@@ -30,8 +26,7 @@ export const Home = () => {
   const isGalleryLoading = useAppSelector(galleryLoadingStatusSelector);
   const totalPages = useAppSelector(totalPagesSelector);
   const error = useAppSelector(errorSelector);
-  const { topicId } = useParams();
-  const { searchQuery } = useSearchQueryState();
+  const { topicId, searchQuery } = useParams();
 
   const isLastPage = () => {
     if (!totalPages) {
@@ -58,22 +53,6 @@ export const Home = () => {
     }
   }, [dispatch, page, topicId, searchQuery]);
 
-  if (!photos.length) {
-    return (
-      <StyledErrorMessage>
-        We didn't find anything. Try another query
-      </StyledErrorMessage>
-    );
-  }
-
-  if (error) {
-    return (
-      <StyledErrorMessage>
-        An error occurred. Try again later
-      </StyledErrorMessage>
-    );
-  }
-
   return (
     <>
       {bannerPhoto && (
@@ -82,6 +61,19 @@ export const Home = () => {
           imageURL={bannerPhoto.urls.regular}
         />
       )}
+
+      {error && (
+        <StyledErrorMessage>
+          An error occurred. Try again later
+        </StyledErrorMessage>
+      )}
+
+      {!photos.length && (
+        <StyledErrorMessage>
+          We didn't find anything. Try another query
+        </StyledErrorMessage>
+      )}
+
       <GalleryList photos={photos} isLoading={isGalleryLoading} />
       <LoadMoreButton onClick={loadMorePhotos} isVisible={isLastPage()} />
     </>

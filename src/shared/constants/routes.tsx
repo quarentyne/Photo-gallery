@@ -7,7 +7,6 @@ export enum ROUTES_PATHS {
   TOPIC = '/topic',
   USER = '/users',
   PHOTO = '/photos',
-  SEARCH = '/search',
 }
 
 interface IRoute {
@@ -31,5 +30,9 @@ export const ROUTES: IRoute[] = [
   {
     path: `${ROUTES_PATHS.USER}/:username`,
     component: <User />,
+  },
+  {
+    path: `${ROUTES_PATHS.HOME}/:searchQuery`,
+    component: <Home />,
   },
 ];

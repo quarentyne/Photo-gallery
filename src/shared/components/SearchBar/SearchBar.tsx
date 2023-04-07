@@ -1,50 +1,32 @@
-import { ChangeEvent, useMemo, useEffect, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, useMemo } from 'react';
 import debounce from 'lodash.debounce';
-import {
-  StyledSearchInput,
-  StyledSearchForm,
-  StyledSearchButton,
-} from './styles';
+import { StyledSearchInput } from './styles';
 import { PER_PAGE } from '../../constants';
 import { useAppDispatch } from '../../hooks';
 import { getPhotosByQuery } from '../../../modules/HomePage';
 
-interface ISearchBar {
-  query: string;
-  setQuery: (query: string) => void;
-}
-
-export const SearchBar = ({ query, setQuery }: ISearchBar) => {
+export const SearchBar = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trim();
-    setQuery(value);
+    dispatch(
+      getPhotosByQuery({ query: e.target.value, page: 1, per_page: PER_PAGE })
+    );
+    navigate(e.target.value);
+    e.target.value = '';
   };
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!query) {
-      return;
-    }
-    dispatch(getPhotosByQuery({ query, page: 1, per_page: PER_PAGE }));
-  };
-
-  const debouncedChangeHandler = useMemo(() => debounce(handleChange, 100), []);
-
-  useEffect(() => {
-    return () => {
-      debouncedChangeHandler.cancel();
-    };
-  });
+  const debouncedChangeHandler = useMemo(
+    () => debounce(handleChange, 1000),
+    []
+  );
 
   return (
-    <StyledSearchForm onSubmit={handleSubmit}>
-      <StyledSearchInput
-        onChange={debouncedChangeHandler}
-        placeholder="Search photos"
-      />
-      <StyledSearchButton type="submit">Search</StyledSearchButton>
-    </StyledSearchForm>
+    <StyledSearchInput
+      onChange={debouncedChangeHandler}
+      placeholder="Search photos"
+    />
   );
 };
