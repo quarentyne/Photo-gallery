@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
 import { PER_PAGE } from '../../shared/constants';
 import { LoadMoreButton } from '../../shared/components';
@@ -26,7 +26,9 @@ export const Home = () => {
   const isGalleryLoading = useAppSelector(galleryLoadingStatusSelector);
   const totalPages = useAppSelector(totalPagesSelector);
   const error = useAppSelector(errorSelector);
-  const { topicId, searchQuery } = useParams();
+  const { topicId } = useParams();
+  const [query] = useSearchParams();
+  const searchQuery: string = query.values().next().value;
 
   const isLastPage = () => {
     if (!totalPages) {
