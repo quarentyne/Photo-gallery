@@ -10,3 +10,5 @@ export enum API_ENDPOINTS {
 export const AUTHORIZATION_PARAMS = {
   Authorization: 'Client-ID bb5b762fe9143a6445f0a3d30f47c55329c0ddf450c78b884c5026ee78c5bcef',
 };
+
+export const SEARCH_QUERY_KEY = 'query';

@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks';
-import { PER_PAGE } from '../../shared/constants';
+import { PER_PAGE, SEARCH_QUERY_KEY } from '../../shared/constants';
 import { LoadMoreButton } from '../../shared/components';
 import {
   Banner,
@@ -28,7 +28,7 @@ export const Home = () => {
   const error = useAppSelector(errorSelector);
   const { topicId } = useParams();
   const [searchParams] = useSearchParams();
-  const searchQuery: string = searchParams.values().next().value;
+  const searchQuery = searchParams.get(SEARCH_QUERY_KEY);
 
   const isLastPage = () => {
     if (!totalPages) {
