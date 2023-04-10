@@ -4,6 +4,7 @@ import { COLORS, FONT_SIZES } from "../../constants/themes";
 export const StyledButton = styled.button`
   display: block;
   margin: 5px auto;
+  min-width: 200px;
   width: calc((100% / 3) - 8px);
   padding: 16px;
   cursor: pointer;
