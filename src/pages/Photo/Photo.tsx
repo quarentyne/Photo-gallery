@@ -22,14 +22,11 @@ export const Photo = () => {
     }
   }, [dispatch, id]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   const goBackHandler = () => navigate(-1);
 
   return (
     <>
+      {isLoading && <Loader />}
       {photo && (
         <PhotoCard
           authorName={photo.user.name}

@@ -21,12 +21,9 @@ export const User = () => {
     }
   }, [dispatch, username]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   return (
     <>
+      {isLoading && <Loader />}
       {user && (
         <UserCard
           name={user.name}

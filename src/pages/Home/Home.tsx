@@ -27,8 +27,8 @@ export const Home = () => {
   const totalPages = useAppSelector(totalPagesSelector);
   const error = useAppSelector(errorSelector);
   const { topicId } = useParams();
-  const [query] = useSearchParams();
-  const searchQuery: string = query.values().next().value;
+  const [searchParams] = useSearchParams();
+  const searchQuery: string = searchParams.values().next().value;
 
   const isLastPage = () => {
     if (!totalPages) {
