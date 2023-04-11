@@ -64,20 +64,22 @@ export const Home = () => {
         />
       )}
 
-      {error && (
+      {error ? (
         <StyledErrorMessage>
           An error occurred. Try again later
         </StyledErrorMessage>
+      ) : (
+        <>
+          <GalleryList photos={photos} isLoading={isGalleryLoading} />
+          <LoadMoreButton onClick={loadMorePhotos} isVisible={isLastPage()} />
+        </>
       )}
 
-      {!photos.length && (
+      {!photos.length && !isGalleryLoading && (
         <StyledErrorMessage>
           We didn't find anything. Try another query
         </StyledErrorMessage>
       )}
-
-      <GalleryList photos={photos} isLoading={isGalleryLoading} />
-      <LoadMoreButton onClick={loadMorePhotos} isVisible={isLastPage()} />
     </>
   );
 };

@@ -11,10 +11,11 @@ export const SearchBar = () => {
   const [, setQuery] = useSearchParams();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(`${SEARCH_QUERY_KEY}=${value}`);
-    dispatch(getPhotosByQuery({ query: value, page: 1, per_page: PER_PAGE }));
-    e.target.value = '';
+    const value = e.target.value.trim();
+    if (value) {
+      setQuery(`${SEARCH_QUERY_KEY}=${value}`);
+      dispatch(getPhotosByQuery({ query: value, page: 1, per_page: PER_PAGE }));
+    }
   };
 
   const debouncedChangeHandler = useMemo(
